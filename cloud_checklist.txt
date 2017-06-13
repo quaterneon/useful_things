@@ -1,0 +1,47 @@
+Courtesy of Arun
+
+Architecture
+    How are your services laid out today? 
+    How do they need to be defined in Kubernetes? 
+    What remains in the datacenter, and how does it communicate to services based in cloud? 
+    For kubernetes based services:
+        How should you scale the application?
+        Where are the processing bottlenecks and how do you scale those? 
+Implementation
+    What is your v1? What is your vShipReady?
+    What is the roadmap from current state to v1 to vShipReady? What do you need to do to get from current state to shipping? 
+Security
+    How are you securing the application and all services? 
+        Describe authentication, authorization, and encryption
+    How are you securing  communication in a hybrid scenario? 
+    How are you securing communication with the database? 
+    Are you encrypting data at rest? 
+    What are you auditing and where does your audit log live? 
+Deployment
+    (assuming a pipeline) is deployment to production going to be manual? 
+    What deployment strategy are you going to use, e.g. Blue/green? Canary? Etc?
+        What liveness checks do you use for kubernetes to validate successful instance deployment? 
+        How do you trigger a rollback?
+        How are you going to ensure your schema can roll back as well? 
+Testing and Validation
+    How are you running unit tests and integration tests?
+        When are containers built and used in the testing process 
+    What about other NFR tests? 
+    How do you flag an entire application consisting of separate containers as ‘ready to deploy’?
+        What is your versioning scheme?
+Monitoring and Alerting
+    What are the failure points in your application and how do you mitigate those failures? 
+        What are the set of processes to remediate those failures? 
+    What are other system indicators of pending failure that you can monitor?
+        What is not a failure but can indicate eventual failure? 
+    Describe your monitoring architecture:
+        What are you going to monitor (see failure points and  system indicators above)
+        What are the thresholds per monitor that you will alert on?
+    Remediation: for each failure please describe the remediation scenario:
+        What does the person on call need to do to remediate the failure, in simple to follow steps. 
+Game Day 
+    How are you simulating failures and recoveries? 
+    What are you validating when you simulate a failure? 
+        Are your alerts alerting?
+        Do your logs indicate the failure cause and any other failure data? 
+        Do your run books help restore service? 
