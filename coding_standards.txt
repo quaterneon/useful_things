@@ -1,0 +1,427 @@
+TODO: Convert this to latex at some point so it's readable
+
+1General
+2Code Layout
+2.1Imports
+2.1.1Import Order
+2.1.2Indirect Imports
+2.1.3Specify all imports
+2.2White Space
+2.2.1Indentation
+2.2.2Empty Lines
+2.3Line Length
+2.3.1Line Continuations
+3Naming Convention
+4Allowed Patterns
+4.1List/Dictionary Comprehensions
+4.2For/else
+4.3Try/except/else/finally
+4.4Ternary Operator
+4.5Lambda
+4.6Kwargs
+4.6.1Kwargs Method Signatures
+4.6.2Kwargs Keyword
+5Exceptions
+6Comments
+6.1Docstrings
+6.1.1Existence and reStructuredText
+6.1.2Docstring Formatting
+7Python3 Specific Notes
+7.1Type Hinting
+8Exceptions To This Style Guide
+
+
+
+General
+When in doubt, stick to PEP8: https://www.python.org/dev/peps/pep-0008/
+
+
+Code Layout
+Imports
+Import Order
+Standard Python library
+3rd party libraries
+Internal files
+
+# First we import from the Python standard library
+from threading import Thread
+from __future__ import print_function
+
+# Then we add an empty line and import from 3rd party libraries
+from PIL import Image
+from colander import Email
+
+# Then we add another empty line and import from internal files
+from vu.api_utils import geocode_address
+Indirect Imports
+Always import from the file where the thing you need is defined.
+You should not be importing something in file A from file B if file B is getting it by importing it from file C. File A should be importing it from file C.
+# models.py
+class ClassWeNeed():
+	pass
+ 
+# schema.py
+from models import ClassWeNeed
+ 
+# api.py
+from schema import ClassWeNeed # THIS IS BAD
+from models import ClassWeNeed # THIS IS GOOD
+Specify all imports
+NEVER EVER IMPORT *. IF YOU DO, THERE WILL BE CONSEQUENCES.
+This is a terrible idea that can cause naming conflicts, makes you have no idea what is being used where, actually imports massive amounts of stuff (depending on the size of the module you are importing), and in general is BAD.
+
+# NEVER EVER DO THIS
+from module import *
+ 
+# Instead, do this, and import as many things as you want, just explicitly specify ALL of them
+from module import func1, constant1, .... func57 
+ 
+
+White Space
+Indentation
+4 spaces, no tabs per indentation level
+If continuing a line, align with opening delimeter
+If hanging indent would be indistinguishable from next indent level, add an extra level
+For lists, line up with the start of the declaration
+
+my_list = [
+    1, 2, 3,
+    4, 5, 6
+]
+result = some_function_that_takes_arguments('a', 'b', 'c',
+                                            'd', 'e', 'f')
+ 
+ 
+##### Yes:
+
+# Aligned with opening delimiter.
+foo = long_function_name(var_one, var_two,
+                         var_three, var_four)
+
+##### No:
+ 
+# Indentation here is technically correct, but do not put the first arg on a new line.
+# More indentation included to distinguish this from the rest.
+def long_function_name(
+        var_one, var_two, var_three,
+        var_four):
+    print(var_one)
+
+# Hanging indents should add a level.
+foo = long_function_name(
+    var_one, var_two,
+    var_three, var_four)
+  
+# Bad vertical alignment.
+foo = long_function_name(var_one, var_two,
+    var_three, var_four)
+
+# Further indentation required as indentation is not distinguishable.
+def long_function_name(
+    var_one, var_two, var_three,
+    var_four):
+    print(var_one)
+
+
+Empty Lines
+Two empty lines before top-level function and class definitions
+One empty line before and after definitions inside of a class
+Use blank lines, sparingly, to indicate logical sections. If the sections are logically different enough to warrant whitespace, you should probably add a comment as well
+One empty line before and after all if, while, for statements
+Except elif, else statements
+Except if statements that are on the first line after a for, while, if statement or method declaration
+
+def some_other_method(some_other_variable):
+    some_variable = True
+
+    # Put an empty line before and after all if, while, and for statements, see exceptions below
+    if some_variable:
+        some_other_variable = True
+
+    if some_other_variable and a_method():
+        do_something_important()
+
+    do_something_else(some_variable, some_other_variable)
+
+    return some_other_variable
+
+
+def first_line_if(variable_one, variable_two):
+    if variable_one and variable_two:
+        # If an if statement is the first line after a while statement or method declaration then we don't need an
+        # empty line
+        return True
+    elif variable_one:
+        # no empty line before elif or else statements
+        return False
+
+    return True
+Line Length
+Max length of 120 characters. 
+Follow standard PEP8 indentation rules when breaking code out over multiple lines.
+https://www.python.org/dev/peps/pep-0008/#maximum-line-length
+https://www.python.org/dev/peps/pep-0008/#multiline-if-statements
+
+ class Rectangle(Blob):
+
+    def __init__(self, width, height,
+                 color='black', emphasis=None, highlight=0):
+        if (width == 0 and height == 0 and
+                color == 'red' and emphasis == 'strong' or
+                highlight > 100):
+            raise ValueError("sorry, you lose")
+        
+		if width == 0 and height == 0 and (color == 'red' or
+                                           emphasis is None):
+            raise ValueError("I don't think so -- values are %s, %s" %
+                             (width, height))
+        Blob.__init__(self, width, height,
+                      color, emphasis, highlight)
+Line Continuations
+In some situations, long lines are unavoidable or extremely likely. If at all possible, try to avoid line continuations. This comes up in particular with DB queries.
+# Avoid
+stop_query = select(all_columns, segment_table.c.id.in_(requested_segments)) \
+                .select_from(segment_table.join(stop_table))\
+                .where(segment_table.c.bus_id == bus_id)
+
+
+# Do this instead
+query = select(all_columns, segment_table.c.id.in_(requested_segments))
+query = query.select_from(segment_table.join(stop_table))
+query = query.where(segment_table.c.bus_id == bus_id)
+
+Naming Convention
+Constants are in all caps, snake cased. These are hard coded values, never assigned at run time
+Functions are all lower case, snake cased.
+Classes, DB Models are CamelCased
+Things that are intended to be internal to a file/module/class should have an underscore before the name
+
+LOOK_I_AM_A_CONSTANT = "LOOK AT ME, I NEVER CHANGE, I'M HARD CODED, I'M DEFINITELY NOT COMING FROM A CONFIG FILE!!!!!!!"
+ 
+def some_miscellaneous_function(a, b):
+	return a + b
+ 
+def _internal_function():
+	pass
+
+class Country(Base):
+    __tablename__ = 'country'
+    id = Column(Integer, primary_key=True)
+    short_name = Column(String(5), nullable=False)
+    name = Column(String(50), nullable=False)
+Allowed Patterns
+List/Dictionary Comprehensions
+List/Dictionary comprehensions are permitted only under the following conditions:
+If what the comprehension is doing is immediately obvious
+If unrolling a list comprehension would result in a loop that is one, maybe two lines long, it's probably ok
+
+ route_jsons = [route.to_json(embed=True) for route in routes]
+For/else
+Permitted
+
+for it in my_iterable:
+    if it == 'some_value':
+        do_something_important()
+        break
+else:
+    # Mostly used when using a for loop to find something.
+    # http://python-notes.curiousefficiency.org/en/latest/python_concepts/break_else.html
+    raise ValueError('some_value never found!')
+Try/except/else/finally
+Permitted
+https://docs.python.org/2/tutorial/errors.html
+
+def divide(x, y):
+    try:
+        result = x / y
+    except ZeroDivisionError:
+        print "division by zero!"
+    else:
+        print "result is", result
+    finally:
+        print "executing finally clause"
+Ternary Operator
+We allow limited use of both (a if condition else b) and (a or b).
+In the case where (a if exists(a) else b), then we should actually be using (a or b). 
+Exception being if using (a or b) would generate an error
+If we're using ternary operators to get a field from a dictionary if it exists otherwise use default, we should actually be using get().
+However, if the condition is unrelated to bool(a) or bool(b), then we should stick with (a if condition else b).
+Regardless, ternary should only be used in tiny cases, 
+ex. when creating dictionary containing geometry objects like position, where bool(position) fails, then key = position if exists(position) else None logic is concise and readable. 
+Use ternary if and only if it improves the readability of the code
+
+# Ternary form because it is easier to read than many if..else statements for small bits
+custom_name = request.validated['custom_name'] if 'custom_name' in request.validated else None
+ 
+# However, this can be simplified with get():
+custom_name = request.validated.get('custom_name')
+
+# For checking values, we might have this:
+route_date = route_date if route_date else now.date()
+ 
+# However, that is functionally the same as: (this is preferred)
+route_date = route_date or now.date()
+ 
+# If the condition is more complicated than just a check if the value exists, ternary operator is preferred:
+country_name = country_name + ' of America' if (country_name == "United States") else country_name
+ 
+# Here is a case where the ternary operator is preferred because if converted to use an or, this will generate an error rather than using the second half of the clause
+CONFIG = config.lower().strip() if config else DEFAULT_CONFIG # preferred 
+CONFIG = config.lower().strip() or DEFAULT_CONFIG # this will break
+ 
+# Some objects cannot be evaluated this way, because bool(object) fails. Ex. POSTGIS data types like position. In this case, the following is necessary:
+{
+	'geom': str(self.position) if self.position is not None else None
+}
+Lambda
+Technically allowed, but to be avoided
+Only appropriate where they are being used as a minor, obvious wrapper
+Primarily used when args don't match, and the extra args are hardcoded in that case
+If removing the lambda would significantly reduce code reusability, then it is also appropriate
+If you find yourself writing the same lambda more than once, then it shouldn't be a lambda.
+Write a util function with a useful name, it makes the code more readable.
+
+# Example of appropriate lambda use:
+stop = filter(lambda x: x.id == stop.id, stops)[0]
+
+# Extra args don't match, and increases code reusability
+district_id = SchemaNode(... validator = lambda n,v: validate_elem_against_db(n,v, SchoolDistrict, 'id', 'school_district_id'))
+
+Kwargs
+Kwargs Method Signatures
+If you need a large number of kwargs, your function is too complicated, and should be refactored/broken up
+Main exception is functions that build complicated db queries. These functions need to allow for high variability with the filters applied, but any one filter needs to be standard across every place its used. 
+
+# Likely usage of this function is in an API call. 
+# If the API call is parent facing, then we probably want to filter on user_id, possibly message_id, and possibly unread_only.
+# If the API call is an admin call, then we probably want to filter on message_id, school_district_id, and maybe user_id.
+# Both cases might be filtering on user_id, message_id, and the filters should be the same in both cases. However, this function has no idea which API call is calling this function.
+def get_user_message(session, user_id=None, message_id=None, unread_only=False, school_district_id=None):
+    query = session.query(UserMessage)
+    query = query.filter(UserMessage.user_id == user_id)
+
+    if user_id:
+        query = query.filter(UserMessage.user_id == user_id)
+
+    if message_id:
+        query = query.filter(UserMessage.message_id == message_id)
+
+    if unread_only:
+        query = query.filter(UserMessage.read)
+
+    if school_district_id:
+        query = query.filter(UserMessage.school_district_id == school_district_id)
+
+    return query.all()
+Kwargs Keyword
+Avoid unless you have a really good reason to use them.
+
+# This is an ok use of kwargs, because all of the functions explicitly define accepted kwargs, so unexpected kwargs will still be caught, just one level down. Also, each function that the wrapper could call has an identical list of kwargs. 
+def search_by_district(session, object_name, district_id, search_string, **kwargs)
+	if object_name == 'stops':
+        return search_stop_by_district(session, district_id, search_string, **kwargs)
+    if object_name == 'riders':
+        return search_rider_by_district(session, district_id, search_string, **kwargs)
+ 
+ 
+def search_rider_by_district(session, district_id, search_string=None, limit=None, sort_field=None, sort_order=None, offset=None, names_only=False, school_ids=None):
+	pass
+ 
+ 
+def search_stops_by_district(session, district_id, search_string=None, limit=None, sort_field=None, sort_order=None, offset=None, names_only=False, school_ids=None):
+	pass
+Exceptions
+Never have bare exceptions
+When catching exceptions, you should catch specific errors if you know them
+Avoid nested try/excepts
+Minimize the amount of code in try/except blocks, use more of them if need be
+Wrap all db queries in a try except, catch SQLAlchemyError or any Exception that subclasses SQLAlchemyError
+http://docs.sqlalchemy.org/en/latest/core/exceptions.html
+
+# Avoid this
+try:
+	# some code
+except:
+	# exception handling
+ 
+# Instead, do this
+try:
+	# some code
+except Exception:
+	# exception handling
+ 
+# or even better, only catch specific types of errors that you are expecting
+try:
+	elem = long_list[52]
+except IndexError:
+	print "Out of range"
+ 
+# Also avoid nested try/excepts
+try:
+	# some code
+	try:
+		# some more code
+	except Exception:
+		# error handling
+except Exception:
+	# some more error handling
+
+Comments
+Docstrings
+Existence and reStructuredText
+We require docstrings for any method that has an unclear method signature, side effects, or any caveats. We would rather have too many than too few. If a function is not immediately obvious, or over a certain length, require docstring.
+Docstrings should use restructuredtext
+http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
+http://docutils.sourceforge.net/docs/ref/rst/directives.html
+
+ def method_that_raises_exception():
+    """
+    This method raises an exception.
+
+    :return: None, it raises an exception.
+    """
+    raise ValueError('Something went wrong!')
+
+
+def bad_format_docstring():
+	"""This docstring should be on multiple lines."""
+
+
+	pass
+
+
+def good_format_docstring():
+	"""
+	This docstring looks so much nicer.
+	"""
+
+
+	pass
+Docstring Formatting
+You should also have a blank line between the docstring and the next line of code.
+def bad_format_docstring():
+	"""
+	This docstring looms over the next line of code, making it blend into the docstring.
+	"""
+	pass
+
+
+
+def good_format_docstring():
+	"""
+	The next line of code is easier to find.
+	"""
+
+	pass
+Python3 Specific Notes
+Type Hinting
+Wherever possible, please use type hinting. If return object is complicated (ex. a list of dictionaries which contain more lists of dictionaries), please just list outer type. For lists, the outer type is list List of object_type. If the function returns more than one thing, specify all of them as a Tuple type. Please see the the python3 typing library on how to do more complex examples.
+Exceptions To This Style Guide
+Exceptions to this style guide are permitted under the following conditions:
+The violation has a comment next to it specifying which specific rule is being violated (acknowledge violation)
+The comment explains why this should be a permitted exception (explain violation)
+The violation has a linter directive to ignore the rule being violated (if we use a linter that supports this)
+Violation and explanation must be approved during code review process.
+
+
+
