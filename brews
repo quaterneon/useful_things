@@ -1,0 +1,23 @@
+brew tap homebrew/bundle
+brew tap "homebrew/cask"
+brew code.earth.planet.com,52.222.26.215 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC/NlxtWK7S7m5uSDKaGFlkdQyOIfiiayxXG6kDPRHsiqI/axgA6llh3lXPMlKATEUgtSjvnpEF0BWdauGDUaag=
+brew tap "homebrew/cask-versions"
+brew tap "homebrew/science"
+brew tap "osgeo/osgeo4mac"
+# Note Python 2 should be installed first so that it is the default
+brew install python@2"
+# Then this will install Python 3`
+brew install python"
+brew install bazel"
+brew install docker"
+brew install opencv"
+brew install sops"
+brew install osgeo/osgeo4mac/gdal2"
+brew install graphviz"
+brew install protobuf"
+brew install spatialindex"
+
+brew install imagemagick", args: ["with-openjpeg"]
+brew install postgresql"
+brew install kubernetes-cli"
+brew install bash-completion
