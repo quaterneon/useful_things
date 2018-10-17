@@ -7,17 +7,20 @@ brew tap "osgeo/osgeo4mac"
 # Note Python 2 should be installed first so that it is the default
 brew install python@2"
 # Then this will install Python 3`
-brew install python"
-brew install bazel"
-brew install docker"
-brew install opencv"
-brew install sops"
-brew install osgeo/osgeo4mac/gdal2"
-brew install graphviz"
-brew install protobuf"
-brew install spatialindex"
+brew install python
+brew install bazel
+brew install docker
+brew install docker-compose
+brew install opencv
+brew install sops
+brew install osgeo/osgeo4mac/gdal2
+brew install graphviz
+brew install protobuf
+brew install spatialindex
 
-brew install imagemagick", args: ["with-openjpeg"]
-brew install postgresql"
-brew install kubernetes-cli"
+brew install imagemagick --with-openjpeg
+brew install postgresql
+brew install kubernetes-cli
 brew install bash-completion
+brew tap caskroom/cask
+brew cask install google-cloud-sdk
