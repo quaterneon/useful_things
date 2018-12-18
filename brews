@@ -10,8 +10,8 @@ brew install python@2
 brew install python
 brew install bazel
 brew cask install docker
-brew install docker-compose
-brew install docker-machine
+#brew install docker-compose
+#brew install docker-machine
 brew install opencv
 brew install sops
 brew install osgeo/osgeo4mac/gdal2
