@@ -8,8 +8,8 @@ brew tap "osgeo/osgeo4mac"
 brew install python@2
 # Then this will install Python 3`
 brew install python
-brew install bazel
-brew cask install docker
+#brew install bazel
+#brew cask install docker
 #brew install docker-compose
 #brew install docker-machine
 brew install opencv
