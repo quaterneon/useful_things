@@ -2,8 +2,10 @@
 2. Never assume your code is doing what you think it's doing
 3. Never assume you will come back to this code
 4. Never assume that the user will be limited to the logical and sensible
-5. On second thought, never assume anything
+5. Never assume that your one-off script will stay a one-off script
+6. On second thought, never assume anything
 
+From Ash: Humans are hard. Turns out programming involves them.
 
 Addendum: If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
 
