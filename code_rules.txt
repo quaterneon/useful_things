@@ -5,7 +5,13 @@
 5. Never assume that your one-off script will stay a one-off script
 6. On second thought, never assume anything
 
-From Ash: Humans are hard. Turns out programming involves them.
+
+Other quotes:
+- Humans are hard. Turns out programming involves them. ~Ash
+- Some things are worth being prescriptive about. ~Ben
+- Speak to the needs and less to the "history". ~Daniel
+- Too much planning and discussion is possible. ~Duck
+- Don't be so focused on the immediate problem that we forget the original one. ~me
 
 Addendum: If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
 
