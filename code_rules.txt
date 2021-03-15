@@ -1,5 +1,5 @@
-1. Never assume your input is clean
-2. Never assume your code is doing what you think it's doing
+1. Never assume your code is doing what you think it's doing
+2. Never assume your input is clean
 3. Never assume you will come back to this code
 4. Never assume that the user will be limited to the logical and sensible
 5. Never assume that your one-off script will stay a one-off script
@@ -12,6 +12,7 @@ Other quotes:
 - Speak to the needs and less to the "history". ~Daniel
 - Too much planning and discussion is possible. ~Duck
 - Don't be so focused on the immediate problem that we forget the original one. ~me
+- Recapping decisions isn't necessarily an opportunity to readjudicate. ~Quinn
 
 Addendum: If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
 
