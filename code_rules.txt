@@ -13,6 +13,7 @@ Other quotes:
 - Too much planning and discussion is possible. ~Duck
 - Don't be so focused on the immediate problem that we forget the original one. ~me
 - Recapping decisions isn't necessarily an opportunity to readjudicate. ~Quinn
+- Only try to architect for ~10x from where you currently are. You don't know the bottlenecks you'll hit beyond that. ~Ben
 
 Addendum: If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
 
