@@ -4,6 +4,7 @@
 4. Never assume that the user will be limited to the logical and sensible
 5. Never assume that your one-off script will stay a one-off script
 6. On second thought, never assume anything
+7. Read the dang error message
 
 
 Other quotes:

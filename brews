@@ -6,8 +6,8 @@ brew install graphviz
 brew install protobuf
 brew install spatialindex
 brew install wget
-brew install imagemagick --with-openjpeg
 brew install postgresql
 brew install postgis
 brew install kubernetes-cli
 brew install --cask google-cloud-sdk
+brew install jq
