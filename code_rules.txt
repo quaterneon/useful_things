@@ -18,6 +18,7 @@ Other quotes:
 - Quality is important, perfection is not. ~Quinn
 - (frequent retros) Small nudges to keep things from going off the rails rather than a retro after we’ve launched ourselves off the tracks ~Kelsey B
 - Users cannot always be stopped from trying to do odd things but this will at least set their expectation. ~Duck
+- [During a refactor,] support existing bugs. ~Easterday
 
 Addendum: If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
 
