@@ -19,6 +19,8 @@ Other quotes:
 - (frequent retros) Small nudges to keep things from going off the rails rather than a retro after we’ve launched ourselves off the tracks ~Kelsey B
 - Users cannot always be stopped from trying to do odd things but this will at least set their expectation. ~Duck
 - [During a refactor,] support existing bugs. ~Easterday
+- sometimes we don't choose the rabbit hole, sometimes it chooses us ~Melton
+- If you don't set your own expectations, then the customer gets to set them for you. ~Mike D
 
 Addendum: If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
 
