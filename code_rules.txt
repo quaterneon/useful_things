@@ -22,6 +22,7 @@ Other quotes:
 - sometimes we don't choose the rabbit hole, sometimes it chooses us ~Melton
 - If you don't set your own expectations, then the customer gets to set them for you. ~Mike D
 - Knowledge you gain by walking through fire is knowledge you keep. ~Dharma
+- Any carrot long enough is a stick. ~Gleeco
 
 Addendum: If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
 
