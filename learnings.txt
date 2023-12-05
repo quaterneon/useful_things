@@ -1,13 +1,16 @@
+# General Coding & Debugging Rules
 1. Never assume your code is doing what you think it's doing
 2. Never assume your input is clean
 3. Never assume you will come back to this code
 4. Never assume that the user will be limited to the logical and sensible
 5. Never assume that your one-off script will stay a one-off script
 6. On second thought, never assume anything
-7. Read the dang error message
+7. You're going to have to debug this code at 3am when sleep deprived, so make it future-you-proof
+8. Don't underestimate battle-tested code
+9. Read the dang error message
 
 
-Other quotes:
+# Useful Quotes
 - Humans are hard. Turns out programming involves them. ~Ash
 - Some things are worth being prescriptive about. ~Ben G
 - Speak to the needs and less to the "history". ~Daniel
@@ -24,5 +27,28 @@ Other quotes:
 - Knowledge you gain by walking through fire is knowledge you keep. ~Dharma
 - Any carrot long enough is a stick. ~Gleeco
 
-Addendum: If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
+# MRs
+If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
+
+# Architecture
+- Don't be clever
+- Never use Postgres as a queue, and never use Postgres as a streaming queue
+- Make sure decisions are made in the right place
+
+# Documents
+- Most important question of any document: why am I writing this document? What do I want to accomplish?
+- Be mindful of your audience
+- Stop putting clauses in sentences. More simple sentences is better than many complex sentences.
+- Whitespace helps make documents readable
+- Write an ombibus document first that you never share with anyone. This gets the clutter out of your brain.
+- Write many, short, targeted documents
+
+# Strategy/Planning
+- Pick your battles
+- Yes, most of your time will be spent stating the obvious. 
+- Always check your assumptions
+- Understand what knowledge people are starting with that led to their assumptions/conclusions
+
+
+
 
