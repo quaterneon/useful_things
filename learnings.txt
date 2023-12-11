@@ -48,7 +48,8 @@ If you are reviewing my code, then you are my last line of defense against mista
 - Yes, most of your time will be spent stating the obvious. 
 - Always check your assumptions
 - Understand what knowledge people are starting with that led to their assumptions/conclusions
-
+- The right question at the right time can move a mountain. To maximize the chances of hitting that moment, always ask question, no matter how obvious they seem.
+- Sometimes the best questions are the obvious ones
 
 
 
