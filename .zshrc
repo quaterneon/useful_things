@@ -13,22 +13,47 @@ zstyle ':vcs_info:*' enable git
 export EDITOR="vim"
 export BROWSER="chrome"
 
-# Paths
-export PATH="$PATH:/Users/agata/bin"
-
 # Aliases
 alias svi='sudo -E vim'
 alias dir='ls -lhrat'
 alias ls='ls -GFh'
-alias grepnf='grep -R --exclude-dir=frontend_src --exclude-dir=static --exclude-dir=templates'
 
 # Git
 export GIT_EDITOR=vim
 
 # GO
-export GOPATH=/Users/agata/go
+export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
+eval "$(goenv init -)"
 
-# Moar style things
+switchgo () {
+  # goenv/Golang setup
+  export GOENV_ROOT="$HOME/.goenv"
+  export PATH="$GOENV_ROOT/bin:$PATH"
+  eval "$(goenv init -)"
+  goenv shell $1
+  export GOPATH=$(go env GOPATH)
+  export GOROOT=$(go env GOROOT)
+  export GOBIN=$(go env GOBIN)
+  export PATH="$GOROOT/bin:$PATH"
+}
+
+# zsh
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 autoload -U compinit && compinit
+
+# python versioning goo
+eval "$(pyenv init -)"
+alias enable_pyenv='export PATH=$(pyenv root)/shims:$PATH'
+enable_pyenv
+alias clear_poetry='poetry cache:clear --all pypi'
+
+# Gcloud
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
+# Time utils
+alias timez='for TZ in US/{Pacific,Mountain,Central,Eastern} Europe/Berlin UTC;do echo "${TZ},$(TZ=${TZ} date)";done | column -s ',' -t'
+
+# zoxide
+eval "$(zoxide init zsh)"
