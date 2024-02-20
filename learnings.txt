@@ -26,13 +26,15 @@
 - If you don't set your own expectations, then the customer gets to set them for you. ~Mike D
 - Knowledge you gain by walking through fire is knowledge you keep. ~Dharma
 - Any carrot long enough is a stick. ~Gleeco
+- Stop being clever and start being effective. ~Chris C
+- Simplicity does not always equal one system. ~Chris C
 
 # MRs
 If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
 
 # Architecture
 - Don't be clever
-- Never use Postgres as a queue, and never use Postgres as a streaming queue
+- Never use Postgres as a queue, and never ever use Postgres as a streaming queue
 - Make sure decisions are made in the right place
 
 # Documents
@@ -48,7 +50,7 @@ If you are reviewing my code, then you are my last line of defense against mista
 - Yes, most of your time will be spent stating the obvious. 
 - Always check your assumptions
 - Understand what knowledge people are starting with that led to their assumptions/conclusions
-- The right question at the right time can move a mountain. To maximize the chances of hitting that moment, always ask question, no matter how obvious they seem.
+- The right question at the right time can move a mountain. To maximize the chances of hitting that moment, always ask questions, no matter how obvious they seem.
 - Sometimes the best questions are the obvious ones
 
 
