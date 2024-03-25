@@ -28,6 +28,8 @@
 - Any carrot long enough is a stick. ~Gleeco
 - Stop being clever and start being effective. ~Chris C
 - Simplicity does not always equal one system. ~Chris C
+- Every question you ask, every comment you leave - it's like adding a weight or cost to that person. You have given them something to do/made a demand of their time. ~Clev
+- Many eyes can make a bug shallow. ~Gleeco
 
 # MRs
 If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
@@ -51,6 +53,7 @@ If you are reviewing my code, then you are my last line of defense against mista
 - Always check your assumptions
 - Understand what knowledge people are starting with that led to their assumptions/conclusions
 - The right question at the right time can move a mountain. To maximize the chances of hitting that moment, always ask questions, no matter how obvious they seem.
+- Be mindful of the cost of questions/comments - it's a demand of someone's time
 - Sometimes the best questions are the obvious ones
 
 
