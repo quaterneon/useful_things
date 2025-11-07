@@ -59,6 +59,7 @@ If you are reviewing my code, then you are my last line of defense against mista
 - The right question at the right time can move a mountain. To maximize the chances of hitting that moment, always ask questions, no matter how obvious they seem.
 - Be mindful of the cost of questions/comments - it's a demand of someone's time
 - Sometimes the best questions are the obvious ones
+- A very useful question is "what happens if we don't do that?"
 
 
 
