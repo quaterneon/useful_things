@@ -33,6 +33,7 @@
 - Always have a way to smuggle strings through your system. ~Adam Wo.
 - Software is never really done, at some point it's just released. ~Chris C
 - Since innovation breaks new ground, that ground has not been made reliable. ~Adam W.
+- Computer Science is figuring out how to shoot yourself in the foot and then figuring out how to stop shooting yourself in the foot. ~Brian C
 
 # MRs
 If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
