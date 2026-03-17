@@ -1,0 +1,124 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "base_keymap": "JetBrains",
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/.husky",
+    "**/.idea",
+    "**/.git",
+    "**/.vscode",
+    "**/.zed",
+    "**/.ropeproject",
+    "**/*.lock**",
+    "**/dist",
+    "**/.ruff_cache",
+    "**/.venv",
+    "**/venv",
+    "**/bin"
+  ],
+  "edit_predictions": {
+    "provider": "zed",
+    "disabled_globs": [
+      "**/.git",
+      "**/.svn",
+      "**/.hg",
+      "**/.jj",
+      "**/CVS",
+      "**/.DS_Store",
+      "**/Thumbs.db",
+      "**/.classpath",
+      "**/.settings",
+      "**/.husky",
+      "**/.idea",
+      "**/.git",
+      "**/.vscode",
+      "**/.zed",
+      "**/.ropeproject",
+      "**/*.lock**",
+      "**/dist",
+      "**/.ruff_cache",
+      "**/.venv",
+      "**/venv",
+      "**/bin"
+    ],
+    "mode": "eager",
+    "enabled_in_text_threads": false
+  },
+  "vim_mode": false,
+  "agent": {
+    "default_profile": "write",
+    "model_parameters": [],
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    },
+    "font_size": 20
+  },
+  "ui_font_size": 20,
+  "buffer_font_size": 16.0,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "New Darcula"
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": true
+  },
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true
+  },
+  "breadcrumbs": true,
+  "scrollbar": {
+    "show": "always",
+    "diagnostics": "all",
+    "git_diff": true
+  },
+  "indent_guides": {
+    "enabled": true
+  },
+  "gutter": {
+    "line_numbers": true,
+    "code_actions": true,
+    "folds": true
+  },
+  "project_panel": {
+    "dock": "left",
+    "auto_fold_dirs": false,
+    "file_icons": true,
+    "folder_icons": true
+  },
+  "terminal": {
+    "dock": "bottom"
+  },
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "completeFunctionCalls": false
+      }
+    }
+  }
+}
