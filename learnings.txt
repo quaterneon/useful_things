@@ -39,6 +39,7 @@
 - Stay grounded in today, with an eye towards eventual convergence.
 - If you're loud all the time, you become the noise.
 - Cynicism is a reason to stop. Optimism is a reason to start. ~ Adam W.
+- Lead with structure not process. ~Melodie M.
 
 # MRs
 If you are reviewing my code, then you are my last line of defense against mistakes. If you are trying to be nice with my PR, then I cannot trust you to be that defense.
